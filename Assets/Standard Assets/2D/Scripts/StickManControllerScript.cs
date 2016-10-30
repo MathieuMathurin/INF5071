@@ -4,7 +4,8 @@ using System.Collections;
 public class StickManControllerScript : MonoBehaviour {
 
     public float maxSpeed = 10f;
-    public float jumpForce = 0.5f;
+    public float jumpForce = 1000f;
+    public float jumpSpeedModifier = 0.5f;
 
     private bool facingRight = false;    
 
@@ -26,15 +27,19 @@ public class StickManControllerScript : MonoBehaviour {
         animator.SetBool("Ground", grounded);
 
         //animator.SetFloat("vSpeed", rigidBody.velocity.y);
+        var speedModifier = 1f;
 
-        //if (!grounded) return;
+        if (!grounded)
+        {
+            speedModifier = jumpSpeedModifier;
+        }
 
         float move = Input.GetAxis("Horizontal");
         var speed = Mathf.Abs(move);
         animator.SetFloat("Speed", speed * maxSpeed);
 
 
-        rigidBody.velocity = new Vector2(move * maxSpeed, rigidBody.velocity.y);
+        rigidBody.velocity = new Vector2(move * maxSpeed * speedModifier, rigidBody.velocity.y);
 
         if(move > 0 && !facingRight)
         {
