@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RobotControllerScript : MonoBehaviour {
+public class StickManControllerScript : MonoBehaviour {
 
     public float maxSpeed = 10f;
     public float jumpForce = 0.5f;
 
-    private bool facingRight = true;    
+    private bool facingRight = false;    
 
-    bool grounded = false;
+    public bool grounded = false;
     public Transform groundCheck;
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;    
@@ -25,9 +25,9 @@ public class RobotControllerScript : MonoBehaviour {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         animator.SetBool("Ground", grounded);
 
-        animator.SetFloat("vSpeed", rigidBody.velocity.y);
+        //animator.SetFloat("vSpeed", rigidBody.velocity.y);
 
-        if (!grounded) return;
+        //if (!grounded) return;
 
         float move = Input.GetAxis("Horizontal");
         var speed = Mathf.Abs(move);
