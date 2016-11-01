@@ -22,7 +22,15 @@ public class StickManControllerScript : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody2D>();
     }
 		
-	void FixedUpdate () {        
+	void FixedUpdate () {
+		Camera cam = Camera.main;
+		Vector3 position = cam.gameObject.transform.position;
+		float height = cam.orthographicSize;
+		if (position.y - height >  this.transform.position.y){
+			UnityEditor.EditorUtility.DisplayDialog ("Fin de la partie", "Vous avez perdu!\nVous avez survévu pendant: " + Time.time + " secondes", "OK");
+			UnityEditor.EditorApplication.isPlaying = false;
+			Application.Quit();
+		}
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         animator.SetBool("Ground", grounded);
 
@@ -49,6 +57,7 @@ public class StickManControllerScript : MonoBehaviour {
             Flip();
         }
 	}
+
 
     void Update()
     {
