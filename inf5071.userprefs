@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\2D\Scripts\StickManControllerScript.cs">
     <Files>
-      <File FileName="Assets\scroll.cs" Line="15" Column="53" />
+      <File FileName="Assets\scroll.cs" Line="1" Column="1" />
       <File FileName="Assets\movingUP.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\2D\Scripts\StickManControllerScript.cs" Line="32" Column="18" />
+      <File FileName="Assets\Standard Assets\2D\Scripts\StickManControllerScript.cs" Line="29" Column="57" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
