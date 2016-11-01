@@ -27,7 +27,7 @@ public class StickManControllerScript : MonoBehaviour {
 		Vector3 position = cam.gameObject.transform.position;
 		float height = cam.orthographicSize;
 		if (position.y - height >  this.transform.position.y){
-			UnityEditor.EditorUtility.DisplayDialog ("Fin de la partie", "Vous avez perdu!", "OK");
+			UnityEditor.EditorUtility.DisplayDialog ("Fin de la partie", "Vous avez perdu!\nVous avez survévu pendant: " + Time.time + " secondes", "OK");
 			UnityEditor.EditorApplication.isPlaying = false;
 			Application.Quit();
 		}
