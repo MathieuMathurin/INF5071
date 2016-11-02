@@ -49,7 +49,10 @@ public class StickManControllerScript : MonoBehaviour {
             speedModifier = jumpSpeedModifier;
         }
 
-        var axis = player == Players.Player1 ? "Horizontal" : "Horizontal2";
+        var isPlayer1 = player == Players.Player1;
+        //Custom axis can be found in: Edit > Project Settings > Input
+        var axis = isPlayer1 ? "Horizontal" : "Horizontal2";
+
         float move = Input.GetAxis(axis);
         var speed = Mathf.Abs(move);
         animator.SetFloat("Speed", speed * maxSpeed);
