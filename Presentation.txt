@@ -1,17 +1,18 @@
-La division des tâches au sein de l'équipe; 
-Les styles de jeu utilisés (voir plus haut);
-Des jeux déjà existants similaires à celui que vous avez conçu;
+La division des tâches au sein de l'équipe; @@
+Les styles de jeu utilisés (voir plus haut); @@
+Des jeux déjà existants similaires à celui que vous avez conçu;   @@
 Le type de projections 2D utilisées (orthographique, isométrique, parallax, cavalier, etc.;
 Les points forts et les points faibles de votre projet;
-Le langage de programmation et les technologies utilisées;
+
+Le langage de programmation et les technologies utilisées; @@
 Les réalisations techniques et/ou artistiques dont vous êtes fiers/fières !
 Une démonstration en direct (prévoir au moins 5 minutes).
 
-Comment avez-vous organisé vos fichiers Blender et divisé le travail ?
-Comment avez-vous procédé pour la modélisation ?
-De quelle manière vous y êtes-vous pris pour appliquer des textures et des couleurs ?
-Quelle configuration de lumière a été employée ?
-De quelle façon la caméra est-elle positionnée pour le rendu des ressources ?
+Comment avez-vous organisé vos fichiers Blender et divisé le travail ?@@
+Comment avez-vous procédé pour la modélisation ?@@
+De quelle manière vous y êtes-vous pris pour appliquer des textures et des couleurs ?@@
+Quelle configuration de lumière a été employée ?   ????
+De quelle façon la caméra est-elle positionnée pour le rendu des ressources ?  @@
 De quelle façon avez-vous automatisé la génération des ressources (script Blender, par exemple) et éventuellement des sprite sheets ?
 (optionnellement) Avez-vous effectué des post-traitements sur vos images (par exemple au niveau de l'anticrénelage) ?
-Comment avez-vous conçu vos animations ?
+Comment avez-vous conçu vos animations ? @@
