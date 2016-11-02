@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A1CF785D-ECC8-84BA-AF17-C80B1A8542FE}</ProjectGuid>
+    <ProjectGuid>{DC8AC40B-829F-29BC-B7C7-5F8C7BF91F9B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -93,13 +93,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="inf5071.CSharp.Plugins.csproj">
-      <Project>{D1FB1783-126F-3A45-DACD-5AB949C96D57}</Project>
-      <Name>inf5071.CSharp.Plugins</Name>
+    <ProjectReference Include="INF5071.CSharp.Plugins.csproj">
+      <Project>{766F601E-A114-C406-B3D4-0C12027EAA1D}</Project>
+      <Name>INF5071.CSharp.Plugins</Name>
     </ProjectReference>
-    <ProjectReference Include="inf5071.CSharp.csproj">
-      <Project>{B9C75709-49A6-C786-F0A1-A39A11F91AB5}</Project>
-      <Name>inf5071.CSharp</Name>
+    <ProjectReference Include="INF5071.CSharp.csproj">
+      <Project>{1254913A-481D-E45B-1BF5-948A127B8EC6}</Project>
+      <Name>INF5071.CSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
