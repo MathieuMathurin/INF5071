@@ -52,8 +52,8 @@ public class StickManControllerScript : MonoBehaviour {
 				UnityEditor.EditorUtility.DisplayDialog ("Fin de la partie", "Vous avez perdu!\nVous avez survévu pendant: " + Time.time + " secondes", "OK");
 			}
 
-			Application.LoadLevel(Application.loadedLevel);
-			//UnityEditor.EditorApplication.isPlaying = false;
+			//Application.LoadLevel(Application.loadedLevel);
+			UnityEditor.EditorApplication.isPlaying = false;
 			Application.Quit();
 		}
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
