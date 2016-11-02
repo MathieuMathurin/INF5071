@@ -11,8 +11,8 @@ public class StickManControllerScript : MonoBehaviour {
 
     public Players player = Players.Player1;
     public float maxSpeed = 10f;
-    public float jumpForce = 1000f;
-    public float jumpSpeedModifier = 0.5f;
+    public float jumpForce = 1550f;
+    public float jumpSpeedModifier = 0.7f;
 
     private bool facingRight = false;    
 

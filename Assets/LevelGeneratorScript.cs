@@ -12,16 +12,16 @@ public class LevelGeneratorScript : MonoBehaviour {
 
 	private int currentOffset = 0;
 	private Queue<GameObject> buffer = new Queue<GameObject> ();
-	private GameObject lastInserted;
+	//private GameObject lastInserted;
 
 	// Use this for initialization
 	void Start () {
 		GameObject go = spawnPlatform(Random.Range (-15, 15), getCurrentY());
-		this.lastInserted = go;
+		//this.lastInserted = go;
 		this.buffer.Enqueue (go);
 		for (int i = 0; i < LevelGeneratorScript.BUFFER_SIZE - 1; ++i) {
 			go = spawnPlatform(Random.Range (-15, 15), getCurrentY());
-			this.lastInserted = go;
+			//this.lastInserted = go;
 			this.buffer.Enqueue (go);
 		}
 	}
@@ -30,15 +30,15 @@ public class LevelGeneratorScript : MonoBehaviour {
 	void Update () {
 		float smallestY = this.buffer.Peek ().transform.position[1];
 		float treshold = Camera.main.transform.position[1] - (LevelGeneratorScript.BUFFER_SIZE * this.stepHeight) + 40;
-		Debug.Log ("smallestY : " + smallestY);
-		Debug.Log ("treshold : " + treshold);
+		//Debug.Log ("smallestY : " + smallestY);
+		//Debug.Log ("treshold : " + treshold);
 
-		Debug.Log ("Camera.main.transform.position :");
+		//Debug.Log ("Camera.main.transform.position :");
 
 		if (treshold > smallestY) {
 			Destroy( this.buffer.Dequeue () );
 			GameObject go = spawnPlatform(Random.Range (-15, 15), getCurrentY());
-			this.lastInserted = go;
+		    //this.lastInserted = go;
 			this.buffer.Enqueue (go);
 		}
 		
