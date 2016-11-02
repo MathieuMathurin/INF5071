@@ -20,7 +20,9 @@ public class StickManControllerScript : MonoBehaviour {
     public bool grounded = false;
     public Transform groundCheck;
     float groundRadius = 0.2f;
-    public LayerMask whatIsGround;    
+    public LayerMask whatIsGround;
+
+    private string[] connectedJoysticks;
 
     Animator animator;
     Rigidbody2D rigidBody;
@@ -33,6 +35,8 @@ public class StickManControllerScript : MonoBehaviour {
 		{
 			dualPlay = true;
 		}
+
+        connectedJoysticks = Input.GetJoystickNames();        
     }
 		
 	void FixedUpdate () {
@@ -59,10 +63,20 @@ public class StickManControllerScript : MonoBehaviour {
         if (!grounded)
         {
             speedModifier = jumpSpeedModifier;
-        }
-			
+        }        
+
         //Custom axis can be found in: Edit > Project Settings > Input
         var axis = isPlayer1 ? "Horizontal" : "Horizontal2";
+
+        //Map to controllers if they are connected
+        if(player == Players.Player1 && connectedJoysticks.Length > 0 && connectedJoysticks[0] != "")
+        {
+            axis += "-Controller";
+        }
+        if (player == Players.Player2 && connectedJoysticks.Length > 1 && connectedJoysticks[1] != "")
+        {
+            axis += "-Controller";
+        }
 
         float move = Input.GetAxis(axis);
         var speed = Mathf.Abs(move);
@@ -85,8 +99,10 @@ public class StickManControllerScript : MonoBehaviour {
     {
         //Jump code.
         //TODO: Change GetKeyDown for GetKey (Allows to configure it)
-        var jumpKey = player == Players.Player1 ? KeyCode.Space : KeyCode.W;
-        if (grounded && Input.GetKeyDown(jumpKey))
+        var isPlayer1 = player == Players.Player1;
+        var jumpKey =  isPlayer1 ? KeyCode.Space : KeyCode.W;
+        var controllerJumpKey = isPlayer1 ? KeyCode.Joystick1Button1 : KeyCode.Joystick2Button1;
+        if (grounded && (Input.GetKeyDown(jumpKey) || Input.GetKeyDown(controllerJumpKey)))
         {
             animator.SetBool("Ground", false);
             rigidBody.AddForce(new Vector2(0, jumpForce));
