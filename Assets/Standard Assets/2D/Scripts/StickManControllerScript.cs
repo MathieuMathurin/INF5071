@@ -15,6 +15,7 @@ public class StickManControllerScript : MonoBehaviour {
     public float jumpSpeedModifier = 0.7f;
 
     private bool facingRight = false;    
+	private bool dualPlay = false;
 
     public bool grounded = false;
     public Transform groundCheck;
@@ -27,14 +28,25 @@ public class StickManControllerScript : MonoBehaviour {
 	void Start () {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
+
+		if (GameObject.Find("Character 2") != null)
+		{
+			dualPlay = true;
+		}
     }
 		
 	void FixedUpdate () {
+		var isPlayer1 = player == Players.Player1;
 		Camera cam = Camera.main;
 		Vector3 position = cam.gameObject.transform.position;
 		float height = cam.orthographicSize;
 		if (position.y - height >  this.transform.position.y){
-			UnityEditor.EditorUtility.DisplayDialog ("Fin de la partie", "Vous avez perdu!\nVous avez survévu pendant: " + Time.time + " secondes", "OK");
+			string gagnant = isPlayer1 ? " 2 " : " 1 ";
+			if (dualPlay) {
+				UnityEditor.EditorUtility.DisplayDialog ("Fin de la partie", "La partie est terminé\nLe joueur"+ gagnant+"a gagné après: " + Time.time + " secondes", "OK");
+			} else {
+				UnityEditor.EditorUtility.DisplayDialog ("Fin de la partie", "Vous avez perdu!\nVous avez survévu pendant: " + Time.time + " secondes", "OK");
+			}
 			UnityEditor.EditorApplication.isPlaying = false;
 			Application.Quit();
 		}
@@ -48,8 +60,7 @@ public class StickManControllerScript : MonoBehaviour {
         {
             speedModifier = jumpSpeedModifier;
         }
-
-        var isPlayer1 = player == Players.Player1;
+			
         //Custom axis can be found in: Edit > Project Settings > Input
         var axis = isPlayer1 ? "Horizontal" : "Horizontal2";
 
