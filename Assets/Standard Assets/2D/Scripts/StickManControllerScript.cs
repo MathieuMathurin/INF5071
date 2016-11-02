@@ -1,8 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum Players
+{
+    Player1 = 1,
+    Player2 = 2
+}
+
 public class StickManControllerScript : MonoBehaviour {
 
+    public Players player = Players.Player1;
     public float maxSpeed = 10f;
     public float jumpForce = 1000f;
     public float jumpSpeedModifier = 0.5f;
@@ -42,7 +49,8 @@ public class StickManControllerScript : MonoBehaviour {
             speedModifier = jumpSpeedModifier;
         }
 
-        float move = Input.GetAxis("Horizontal");
+        var axis = player == Players.Player1 ? "Horizontal" : "Horizontal2";
+        float move = Input.GetAxis(axis);
         var speed = Mathf.Abs(move);
         animator.SetFloat("Speed", speed * maxSpeed);
 
@@ -63,7 +71,8 @@ public class StickManControllerScript : MonoBehaviour {
     {
         //Jump code.
         //TODO: Change GetKeyDown for GetKey (Allows to configure it)
-        if(grounded && Input.GetKeyDown(KeyCode.Space))
+        var jumpKey = player == Players.Player1 ? KeyCode.Space : KeyCode.W;
+        if (grounded && Input.GetKeyDown(jumpKey))
         {
             animator.SetBool("Ground", false);
             rigidBody.AddForce(new Vector2(0, jumpForce));

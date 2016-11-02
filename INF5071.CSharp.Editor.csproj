@@ -88,17 +88,25 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="NativeAlert">
+      <HintPath>Assets\Plugins\NativeAlert.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="inf5071.CSharp.Plugins.csproj">
       <Project>{D1FB1783-126F-3A45-DACD-5AB949C96D57}</Project>
       <Name>inf5071.CSharp.Plugins</Name>
     </ProjectReference>
+    <ProjectReference Include="inf5071.CSharp.csproj">
+      <Project>{B9C75709-49A6-C786-F0A1-A39A11F91AB5}</Project>
+      <Name>inf5071.CSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
   </ItemGroup>
